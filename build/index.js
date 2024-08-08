@@ -9,8 +9,15 @@ const utils_1 = require("./utils");
 const csvFileReader = new CSVFileReader_1.CSVFileReader('football.csv');
 const matchReader = new MatchReader_1.MatchReader(csvFileReader);
 matchReader.load();
-utils_1.Summary.printHello();
+// Summary.printHello();
 const summary = new utils_1.Summary(new utils_1.WinsAnalysis('Man United'), new utils_1.ConsoleReport()
 // new HtmlReport()
 );
 summary.buildAndPrintReport(matchReader.matches);
+// class ArrayOfThings<T> {
+//   constructor(public collection: T[]) {}
+//   get(index: number): T {
+//     return this.collection[index];
+//   }
+// }
+// const arr = new ArrayOfThings<string>(['a', 'b', 'c']);

@@ -11,7 +11,7 @@ const csvFileReader = new CSVFileReader('football.csv');
 const matchReader = new MatchReader(csvFileReader);
 matchReader.load();
 
-Summary.printHello();
+// Summary.printHello();
 
 const summary = new Summary(
   new WinsAnalysis('Man United'),
@@ -20,3 +20,13 @@ const summary = new Summary(
 );
 
 summary.buildAndPrintReport(matchReader.matches);
+
+// class ArrayOfThings<T> {
+//   constructor(public collection: T[]) {}
+
+//   get(index: number): T {
+//     return this.collection[index];
+//   }
+// }
+
+// const arr = new ArrayOfThings<string>(['a', 'b', 'c']);
