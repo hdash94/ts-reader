@@ -1,5 +1,7 @@
+import { match } from 'assert';
 import { CSVFileReader } from './CSVFileReader';
 import { MatchReader } from './MatchReader';
+import { Summary, WinsAnalysis, ConsoleReport, HtmlReport } from "./utils";
 
 // const reader = new MatchReader('football.csv');
 // reader.read();
@@ -9,6 +11,12 @@ const csvFileReader = new CSVFileReader('football.csv');
 const matchReader = new MatchReader(csvFileReader);
 matchReader.load();
 
-const manuWins = matchReader.getTeamWins("Man United")
+Summary.printHello();
 
-console.log("Manu won " + manuWins);
+const summary = new Summary(
+  new WinsAnalysis('Man United'),
+  new ConsoleReport()
+  // new HtmlReport()
+);
+
+summary.buildAndPrintReport(matchReader.matches);
